@@ -3,6 +3,7 @@
 # Print game over result
 # Use R B Y G optionally instead of Red, Blue, Yellow Green
 # Add more colors (6)
+# Add unittests
 
 import random
 from functools import reduce
