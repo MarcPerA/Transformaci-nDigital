@@ -21,7 +21,7 @@ def select_random_combination(number):
 
 def get_list_from_input(text_input):
     import pdb; pdb.set_trace()
-    return text_input.split(', ')
+    return text_input.split(', ')('Red', 'Blue', 'Yellow', 'Green')
 
 
 def is_valid_input(current_combination):
