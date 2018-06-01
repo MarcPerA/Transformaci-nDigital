@@ -11,6 +11,7 @@ from functools import reduce
 COLORS = ('Red', 'Blue', 'Yellow', 'Green')
 TRYES = 10
 
+result = []
 POSITION_GOOD = 'Good'
 POSITION_BAD = 'Bad'
 POSITION_MOVED = 'Moved'
@@ -21,7 +22,7 @@ def select_random_combination(number):
 
 def get_list_from_input(text_input):
     import pdb; pdb.set_trace()
-    return text_input.split(', ')('Red', 'Blue', 'Yellow', 'Green')
+    return text_input.split(', ')
 
 
 def is_valid_input(current_combination):
