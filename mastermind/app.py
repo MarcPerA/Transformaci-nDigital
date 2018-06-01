@@ -59,7 +59,7 @@ def main():
 
     valid_combination = select_random_combination(number=4)
     # This is for python 2, for python 3 use input
-    text_input = raw_input('Give a new combination:')
+    text_input = input('Give a new combination:')
 
     while not current_try == TRYES and not success:
         text_input = input('Give a new combination:')
@@ -67,7 +67,7 @@ def main():
         current_combination = get_list_from_input(text_input)
 
         if not is_valid_input(current_combination):
-            currenty_try += 1
+            current_try += 1
             continue
 
         result = guess_combination(current_combination, valid_combination)
@@ -75,7 +75,7 @@ def main():
         if is_all_colors_valid(current_combination, valid_combination):
             success = True
         else:
-            currenty_try += 1
+            current_try += 1
 
 
 if __name__ == '__main__':
