@@ -41,13 +41,15 @@ class Player():
 
     def get_damage(self, damage):
         self.health -= damage
-        print(
-            'Recibes {} puntos de daño, te queda {} puntos de vida'.format(
-                self.health, damage)
-        )
+
         if self.health < 0:
             self.health = 0
             print('Has muerto!!!')
+
+        print(
+            'Recibes {} puntos de daño, te queda {} puntos de vida'.format(
+                damage, self.health)
+        )
 
     def has_fled(self):
         # TODO To be implemented
@@ -78,13 +80,15 @@ class Enemy():
 
     def get_damage(self, damage):
         self.health -= damage
-        print(
-            'El enemigo recibe {} puntos de daño, le queda {} puntos de vida'.format(
-                self.health, damage)
-        )
+
         if self.health < 0:
             self.health = 0
             print('El enemigo ha muerto!!!')
+
+        print(
+            'El enemigo recibe {} puntos de daño, le queda {} puntos de vida'.format(
+                damage, self.health)
+        )
 
     def is_alive(self):
         return self.health > 0
