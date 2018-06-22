@@ -2,59 +2,58 @@ import random
 from actors import Player, Enemy
 
 
-NAVIGATION_ACTIONS = dict(
+ENCOUNTERS = dict(
     enemy_orco='Te has encontrado a un orco',
     enemy_goblin='Te has encontrado a un goblin',
     empty_room='sala vacia')
+ENCOUNTERS_WITH_ENEMIES = ('enemy_orco', 'enemy_goblin')
+ENEMY_TYPES = dict(
+    enemy_orco='orco',
+    enemy_goblin='goblin'
+)
 
 
-def choose_direction():
-    # TODO
-    pass
+def choose_action():
+    return input('Elige entre ir (a)delante, a(t)ras, dere(c)ha, (i)zquierda: ')
 
 
 def decide_encounter(navigation_action):
-    # TODO Te has encontrado un orco o
-    # no hay nada en esta sala
-    # random con una lista de acciones
-    return random.choice(NAVIGATION_ACTIONS)
+    return random.choice(list(ENCOUNTERS.keys()))
 
 
 def has_enemy_in_encounter(encounter):
-    # TODO
-    pass
+    return encounter in ENCOUNTERS_WITH_ENEMIES
 
 
 def create_enemy(encounter):
-    # TODO enemy = Enemy(encounter)
-    pass
+    return Enemy(ENEMY_TYPES[encounter])
+
+
+def is_battle_active(player, enemy):
+    return enemy.is_alive() or not player.has_fled() or not player.is_alive()
 
 
 def main():
-    print('RPG')
+    print('======== RPG ===========')
 
     player_name = input('Elige el nombre de tu personaje: ')
-    player_class = input('Elige entre Arquero(1) y Guerrero(2)')
+    player_class = input('Elige entre Arquero(1) y Guerrero(2): ')
     player = Player(player_name, player_class)
     # TODO Contador de salas a las que has podido llegar
 
     while True:
-        # TODO Navegar y realizar una acción de navegación
-        # ir a la derecha, izquierda, adelante, atras
-        # Cada vez que hay una accion de navegacion
-        # puede salir un bicho, o una frase aleatoria
-        navigation_action = choose_direction()
+        navigation_action = choose_action()
         encounter = decide_encounter(navigation_action)
 
         if has_enemy_in_encounter(encounter):
             enemy = create_enemy(encounter)
 
             # Battle mode
-            while enemy.is_alive() or not player.has_fled() or not player.is_alive():
+            while is_battle_active(player, enemy):
                 player.attack(enemy)
                 enemy.attack(player)
 
-        if  not player.is_alive():
+        if not player.is_alive():
             print('GAME OVERRRRRRR!!')
             break
 
