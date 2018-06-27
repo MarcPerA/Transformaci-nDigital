@@ -31,13 +31,21 @@ class GameTestCase(unittest.TestCase):
          player.get_damage(15)
          player.is_attack_avoided = 100
 
-        
     # TODO Test has_enemy_in_encounter
-    def test_has_enemy_in_encounter(self):
-        ENCOUNTERS = Enemy('enemy_orco')
-        ENCOUNTERS_WITH_ENEMIES = ENCOUNTERS
-        ENEMY_TYPES = 'enemy_orco'
-        
+    def test_has_enemy_in_encounter_return_false(self):
+        encounter = 'invalid'
+
+        result = has_enemy_in_encounter(encounter)
+
+        self.assertFalse(result)
+
+    def test_has_enemy_in_encounter_return_true(self):
+        encounter = 'enemy_orco'
+
+        result = has_enemy_in_encounter(encounter)
+
+        self.assertTrue(result)
+
 
     # TODO Test decide_encounter
 

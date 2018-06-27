@@ -48,14 +48,16 @@ def main():
         if has_enemy_in_encounter(encounter):
             enemy = create_enemy(encounter)
 
+            # TODO Meter una tecla para salir del juego, q, por ejemplo
+
             # Battle mode
             while is_battle_active(player, enemy):
+                # TODO Contador de turno
                 # TODO Que hacer aqui para que haya turnos
-                for turnos in range (player):
-                 print("accion de jugador: ", turnos + 1)
-                 player[turnos]+=1
-                turnos+=1
-                player.attack(enemy)
+                action = input('Elige accion: (1) Atacar, (2) Huir: ')
+
+                player.attack(action, enemy)
+                # TODO El enemigo siempre hace ahora lo mismo
                 enemy.attack(player)
 
         if not player.is_alive():

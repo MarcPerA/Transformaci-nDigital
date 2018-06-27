@@ -26,7 +26,8 @@ class Player():
             self.damage = WARRIOR_ATTACK   # Rango entre dos numeros
             self.evasion = WARRIOR_EVASION
 
-    def attack(self, enemy):
+    def attack(self, action, enemy):
+        # TODO Ver que hacer con el action
         if self.is_attack_avoided(enemy):
             print('Ataque evitado')
             return False
