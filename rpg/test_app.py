@@ -20,8 +20,7 @@ class GameTestCase(unittest.TestCase):
 
         self.assertFalse(player.is_alive())
 
-    # TODO Player y enemy
-
+    # TODO Player y enemy, hacer tests de los metodos que se pueda de estas clases
 
     # TODO is_attack_avoided
     def test_is_attack_avoided(self):
