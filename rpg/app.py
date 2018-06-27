@@ -51,6 +51,10 @@ def main():
             # Battle mode
             while is_battle_active(player, enemy):
                 # TODO Que hacer aqui para que haya turnos
+                for turnos in range (player):
+                 print("accion de jugador: ", turnos + 1)
+                 player[turnos]+=1
+                turnos+=1
                 player.attack(enemy)
                 enemy.attack(player)
 
