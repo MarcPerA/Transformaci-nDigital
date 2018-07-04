@@ -30,7 +30,9 @@ def create_enemy(encounter):
 
 
 def is_battle_active(player, enemy):
-    return enemy.is_alive() or not player.has_fled() or not player.is_alive()
+    return enemy.is_alive() and player.is_alive() and not player.has_fled
+    
+    
 
 
 def main():
@@ -39,32 +41,39 @@ def main():
     player_name = input('Elige el nombre de tu personaje: ')
     player_class = input('Elige entre Arquero(1) y Guerrero(2): ')
     player = Player(player_name, player_class)
-    # TODO Contador de salas a las que has podido llegar
+    room_count = 1
+   
 
     while True:
+        player.has_fled = False
         navigation_action = choose_action()
         encounter = decide_encounter(navigation_action)
 
         if has_enemy_in_encounter(encounter):
             enemy = create_enemy(encounter)
+            print('Un {} salvaje aparecio'.format(enemy))
 
-            # TODO Meter una tecla para salir del juego, q, por ejemplo
+            
 
-            # Battle mode
+            
             while is_battle_active(player, enemy):
-                # TODO Contador de turno
-                # TODO Que hacer aqui para que haya turnos
+               
+                
                 action = input('Elige accion: (1) Atacar, (2) Huir: ')
+                
 
                 player.attack(action, enemy)
-                # TODO El enemigo siempre hace ahora lo mismo
+               
                 enemy.attack(player)
 
+        room_count += 1
+        print('Has pasado por la habitación nº', room_count)
         if not player.is_alive():
+            print('Tu puntuación es de {} salas'.format(room_count))
             print('GAME OVERRRRRRR!!')
             break
 
-        # TODO Aumentar contador de salas
+        
 
 
 if __name__ == '__main__':
