@@ -8,7 +8,7 @@ ARCHER_ATTACK = (2, 15)
 ARCHER_EVASION = 10
 WARRIOR_EVASION = 5
 WARRIOR_ATTACK = (5, 25)
-HEALTH_RANGE = (1, 5)
+HEALTH_RANGE = (50, 100)
 
 FLED = 2
 
@@ -17,6 +17,9 @@ MONSTER_EVASION = 2
 
 
 class Player():
+    def __str__(self):
+        return self.name
+
     def __init__(self, name, class_type):
         self.name = name
         self.health = random.randint(*HEALTH_RANGE)
@@ -33,7 +36,6 @@ class Player():
              
         if int(action) == FLED:
             self.has_fled = True
-            print('Se fue')
             return False
             
         if self.is_attack_avoided(enemy):

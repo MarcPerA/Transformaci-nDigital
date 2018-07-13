@@ -1,4 +1,4 @@
-import random
+import random,os,time
 from actors import Player, Enemy
 
 
@@ -42,6 +42,7 @@ def main():
     player_class = input('Elige entre Arquero(1) y Guerrero(2): ')
     player = Player(player_name, player_class)
     room_count = 1
+    enemy_count = 0
    
 
     while True:
@@ -58,14 +59,14 @@ def main():
             
             while is_battle_active(player, enemy):
                
-                
+                print("\nTURNO DE",player_name)
                 action = input('Elige accion: (1) Atacar, (2) Huir: ')
-                
-
+                print('Procesando acción...')
+                time.sleep(1)
                 player.attack(action, enemy)
-               
                 enemy.attack(player)
-
+            enemy_count += 1
+            print('derrotaste a {} enemigos'.format(enemy_count))
         room_count += 1
         print('Has pasado por la habitación nº', room_count)
         if not player.is_alive():
