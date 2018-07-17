@@ -1,6 +1,5 @@
 import random # para generar numeros aleatorios
 import time # para los print y que duren un poquito mas
- 
 # VARIABLES
 movpc=random.randint(0,8)
 ganador=0
@@ -13,7 +12,7 @@ tablero=[" "," "," ",
 tablero_position=["7","8","9",
          "4","5","6",
          "1","2","3" ]
-         
+
 print ("Debes introducir los movimientos indicando un numero del 1 al 9 de este modo")
 
 def imprimetablero():
