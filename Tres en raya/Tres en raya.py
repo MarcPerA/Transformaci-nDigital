@@ -13,6 +13,7 @@ tablero=[" "," "," ",
 tablero_position=["7","8","9",
          "4","5","6",
          "1","2","3" ]
+         
 print ("Debes introducir los movimientos indicando un numero del 1 al 9 de este modo")
 
 def imprimetablero():
